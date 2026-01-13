@@ -14,19 +14,21 @@
     <meta name="geo.placename" content="Seattle">
 
     <!-- Open Graph / Social Media -->
+    <!-- TODO: Update these URLs when you have your domain (e.g., https://yourusername.github.io/CEODAVE or https://ceodave.com) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ceodave.com/">
+    <meta property="og:url" content="">
     <meta property="og:title" content="CEODAVE | Seattle's #1 Bass House & Hip Hop DJ">
     <meta property="og:description" content="Seattle's premier open format DJ. Bass house, hip hop, and Top 100 bangers. Book now for your next event.">
-    <meta property="og:image" content="https://ceodave.com/images/ceodave-og.jpg">
+    <meta property="og:image" content="images/IMG_6805.JPG">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="CEODAVE | Seattle's Premier DJ">
     <meta name="twitter:description" content="Seattle's top open format DJ. Bass house, hip hop, Top 100 remixes.">
+    <meta name="twitter:image" content="images/IMG_6805.JPG">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://ceodave.com/">
+    <!-- Canonical URL - Update when you have your domain -->
+    <link rel="canonical" href="">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎧</text></svg>">
@@ -48,7 +50,7 @@
         "alternateName": "CEO Dave",
         "description": "Seattle's premier open format DJ specializing in bass house, hip hop, and Top 100 remixes",
         "genre": ["Bass House", "Hip Hop", "EDM", "Open Format"],
-        "url": "https://ceodave.com",
+        "url": "",
         "email": "ceodave9@gmail.com",
         "sameAs": [
             "https://www.tiktok.com/@ceo_dave9"
@@ -89,7 +91,7 @@
         <div class="nav-links">
             <a href="#home" class="nav-link active">HOME</a>
             <a href="#about" class="nav-link">ABOUT</a>
-            <a href="#music" class="nav-link">MUSIC</a>
+            <a href="#mixes" class="nav-link">MIXES</a>
             <a href="#events" class="nav-link">EVENTS</a>
             <a href="#booking" class="nav-link cta-btn">BOOK NOW</a>
         </div>
@@ -104,7 +106,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <a href="#home" class="mobile-link">HOME</a>
         <a href="#about" class="mobile-link">ABOUT</a>
-        <a href="#music" class="mobile-link">MUSIC</a>
+        <a href="#mixes" class="mobile-link">MIXES</a>
         <a href="#events" class="mobile-link">EVENTS</a>
         <a href="#booking" class="mobile-link">BOOK NOW</a>
     </div>
@@ -114,8 +116,7 @@
         <div class="hero-content">
             <div class="hero-badge">SEATTLE'S PREMIER DJ</div>
             <h1 class="hero-title glitch" data-text="CEODAVE">
-                <span class="title-line">CEO</span>
-                <span class="title-line accent">DAVE</span>
+                <span class="title-line"><span class="accent">CEO</span>DAVE</span>
             </h1>
             <div class="hero-tagline">
                 <span class="tag-item">BASS HOUSE</span>
@@ -187,10 +188,7 @@
             <div class="about-content">
                 <div class="about-image">
                     <div class="image-frame">
-                        <div class="image-placeholder">
-                            <div class="placeholder-icon">🎧</div>
-                            <span>CEODAVE</span>
-                        </div>
+                        <img src="images/IMG_6805.JPG" alt="CEODAVE - Seattle DJ performing live bass house and hip hop" class="dj-photo">
                         <div class="image-glitch"></div>
                     </div>
                     <div class="floating-badge badge-1">BASS HOUSE</div>
@@ -334,6 +332,98 @@
                     <div class="viz-bar"></div>
                 </div>
             </div>
+
+            <!-- Mixes Section -->
+            <div class="mixes-container" id="mixes">
+                <div class="section-header center">
+                    <span class="section-tag">LISTEN NOW</span>
+                    <h2 class="section-title">LATEST <span class="accent">MIXES</span></h2>
+                </div>
+                <p class="mixes-description">Stream my sets directly. Updated regularly with fresh bass house, hip hop, and open format mixes.</p>
+
+                <div class="mixes-grid">
+                    <!-- Mix 1 - SoundCloud Embed -->
+                    <div class="mix-card">
+                        <div class="mix-embed soundcloud-embed">
+                            <!-- INSTRUCTIONS: Replace the src URL with your SoundCloud track/playlist embed URL -->
+                            <!-- Get embed code from SoundCloud: Share > Embed > Copy the src URL -->
+                            <iframe
+                                width="100%"
+                                height="166"
+                                scrolling="no"
+                                frameborder="no"
+                                allow="autoplay"
+                                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/YOUR_TRACK_ID&color=%23ff006e&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false">
+                            </iframe>
+                        </div>
+                        <div class="mix-info">
+                            <span class="mix-type">BASS HOUSE</span>
+                            <h4>Mix Title Here</h4>
+                            <p>Add your mix description here</p>
+                        </div>
+                    </div>
+
+                    <!-- Mix 2 - Mixcloud Embed -->
+                    <div class="mix-card">
+                        <div class="mix-embed mixcloud-embed">
+                            <!-- INSTRUCTIONS: Replace the data-feed URL with your Mixcloud show URL -->
+                            <!-- Get embed from Mixcloud: Share > Embed > Copy the widget code -->
+                            <iframe
+                                width="100%"
+                                height="180"
+                                src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2FYOUR_USERNAME%2FYOUR_SHOW%2F&light=0"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                        <div class="mix-info">
+                            <span class="mix-type">HIP HOP</span>
+                            <h4>Mix Title Here</h4>
+                            <p>Add your mix description here</p>
+                        </div>
+                    </div>
+
+                    <!-- Mix 3 - YouTube Embed -->
+                    <div class="mix-card">
+                        <div class="mix-embed youtube-embed">
+                            <!-- INSTRUCTIONS: Replace VIDEO_ID with your YouTube video ID -->
+                            <!-- Example: https://youtube.com/watch?v=ABC123 -> VIDEO_ID = ABC123 -->
+                            <iframe
+                                width="100%"
+                                height="200"
+                                src="https://www.youtube.com/embed/YOUR_VIDEO_ID?rel=0&modestbranding=1"
+                                title="CEODAVE Mix"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                        <div class="mix-info">
+                            <span class="mix-type">LIVE SET</span>
+                            <h4>Mix Title Here</h4>
+                            <p>Add your mix description here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mixes-platforms">
+                    <p>Find me on:</p>
+                    <div class="platform-links">
+                        <!-- Add your actual profile links here -->
+                        <a href="#" class="platform-link" target="_blank" rel="noopener">
+                            <span class="platform-icon">☁️</span>
+                            <span>SoundCloud</span>
+                        </a>
+                        <a href="#" class="platform-link" target="_blank" rel="noopener">
+                            <span class="platform-icon">🎧</span>
+                            <span>Mixcloud</span>
+                        </a>
+                        <a href="#" class="platform-link" target="_blank" rel="noopener">
+                            <span class="platform-icon">▶️</span>
+                            <span>YouTube</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -345,59 +435,35 @@
                 <h2 class="section-title">UPCOMING <span class="accent">EVENTS</span></h2>
             </div>
 
-            <div class="events-grid">
-                <article class="event-card featured">
-                    <div class="event-date">
-                        <span class="month">JAN</span>
-                        <span class="day">25</span>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-type">CLUB NIGHT</span>
-                        <h3>Bass House Takeover</h3>
-                        <p class="event-venue">📍 Neumos, Capitol Hill</p>
-                        <p class="event-time">10PM - 2AM</p>
-                    </div>
-                    <div class="event-action">
-                        <span class="event-status live">TICKETS AVAILABLE</span>
-                    </div>
-                </article>
-
-                <article class="event-card">
-                    <div class="event-date">
-                        <span class="month">FEB</span>
-                        <span class="day">14</span>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-type">SPECIAL EVENT</span>
-                        <h3>Valentine's Vibes</h3>
-                        <p class="event-venue">📍 The Crocodile</p>
-                        <p class="event-time">9PM - 2AM</p>
-                    </div>
-                    <div class="event-action">
-                        <span class="event-status upcoming">COMING SOON</span>
-                    </div>
-                </article>
-
-                <article class="event-card">
-                    <div class="event-date">
-                        <span class="month">FEB</span>
-                        <span class="day">28</span>
-                    </div>
-                    <div class="event-info">
-                        <span class="event-type">RESIDENCY</span>
-                        <h3>Friday Night Heat</h3>
-                        <p class="event-venue">📍 Q Nightclub</p>
-                        <p class="event-time">11PM - 3AM</p>
-                    </div>
-                    <div class="event-action">
-                        <span class="event-status upcoming">COMING SOON</span>
-                    </div>
-                </article>
+            <!-- No Events Placeholder -->
+            <div class="no-events">
+                <div class="no-events-icon">📅</div>
+                <h3>No Upcoming Events... Yet</h3>
+                <p>I'm ready to bring the heat to your venue, club, or private event. Let's make it happen!</p>
+                <a href="#booking" class="btn btn-primary pulse-glow">BOOK ME FOR YOUR EVENT</a>
             </div>
 
-            <div class="events-cta">
-                <p>Want CEODAVE at your venue?</p>
-                <a href="#booking" class="btn btn-primary">INQUIRE NOW</a>
+            <div class="event-types">
+                <div class="event-type-card">
+                    <span class="type-icon">🎪</span>
+                    <h4>Club Nights</h4>
+                    <p>High-energy sets for packed dance floors</p>
+                </div>
+                <div class="event-type-card">
+                    <span class="type-icon">🎤</span>
+                    <h4>Private Parties</h4>
+                    <p>Birthdays, celebrations, house parties</p>
+                </div>
+                <div class="event-type-card">
+                    <span class="type-icon">💍</span>
+                    <h4>Weddings</h4>
+                    <p>From ceremony to after-party vibes</p>
+                </div>
+                <div class="event-type-card">
+                    <span class="type-icon">🏢</span>
+                    <h4>Corporate</h4>
+                    <p>Professional entertainment for any occasion</p>
+                </div>
             </div>
         </div>
     </section>
@@ -512,8 +578,7 @@
                             <span class="form-line"></span>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full">
-                            <span>SEND INQUIRY</span>
-                            <div class="btn-loader"></div>
+                            <span>SEND VIA EMAIL</span>
                         </button>
                     </form>
                 </div>
@@ -531,7 +596,7 @@
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
-                <a href="#music">Music</a>
+                <a href="#mixes">Mixes</a>
                 <a href="#events">Events</a>
                 <a href="#booking">Book</a>
             </div>

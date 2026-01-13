@@ -1249,6 +1249,197 @@ body {
 }
 
 /* ==========================================================================
+   DJ Photo Styling
+   ========================================================================== */
+
+.dj-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform var(--transition-slow);
+}
+
+.image-frame:hover .dj-photo {
+    transform: scale(1.05);
+}
+
+/* ==========================================================================
+   Mixes Section
+   ========================================================================== */
+
+.mixes-container {
+    margin-top: 6rem;
+    padding-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mixes-description {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.mixes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.mix-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: all var(--transition-medium);
+}
+
+.mix-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-pink);
+    box-shadow: 0 20px 50px rgba(255, 0, 110, 0.2);
+}
+
+.mix-embed {
+    width: 100%;
+    background: var(--bg-darker);
+    position: relative;
+}
+
+.mix-embed iframe {
+    display: block;
+    border: none;
+}
+
+.soundcloud-embed {
+    min-height: 166px;
+}
+
+.mixcloud-embed {
+    min-height: 180px;
+}
+
+.youtube-embed {
+    min-height: 200px;
+}
+
+.youtube-embed iframe {
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 200px;
+}
+
+.mix-info {
+    padding: 1.5rem;
+}
+
+.mix-type {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--neon-pink);
+    background: rgba(255, 0, 110, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    margin-bottom: 0.75rem;
+}
+
+.mix-info h4 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.mix-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.mixes-platforms {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-glass);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mixes-platforms > p {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.platform-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.platform-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    transition: all var(--transition-medium);
+}
+
+.platform-link:hover {
+    border-color: var(--neon-pink);
+    box-shadow: var(--glow-pink);
+    transform: translateY(-3px);
+}
+
+.platform-icon {
+    font-size: 1.2rem;
+}
+
+/* Responsive Mixes */
+@media (max-width: 992px) {
+    .mixes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .mixes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .platform-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+}
+
+/* ==========================================================================
    Events Section
    ========================================================================== */
 
@@ -1375,6 +1566,95 @@ body {
     font-size: 1.2rem;
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
+}
+
+/* No Events Placeholder */
+.no-events {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--bg-card);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+}
+
+.no-events-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.no-events h3 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.no-events p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.7;
+}
+
+.event-types {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.event-type-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    background: var(--bg-glass);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-medium);
+}
+
+.event-type-card:hover {
+    border-color: var(--neon-pink);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 0, 110, 0.2);
+}
+
+.type-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.event-type-card h4 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.event-type-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+    .event-types {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .event-types {
+        grid-template-columns: 1fr;
+    }
+
+    .no-events h3 {
+        font-size: 1.5rem;
+    }
 }
 
 /* ==========================================================================

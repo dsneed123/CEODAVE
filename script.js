@@ -375,35 +375,30 @@ class BookingForm {
     handleSubmit(e) {
         e.preventDefault();
 
-        const button = this.form.querySelector('button[type="submit"]');
         const formData = new FormData(this.form);
 
-        // Show loading state
-        button.classList.add('loading');
-        button.disabled = true;
+        // Get form values
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const eventType = formData.get('event-type');
+        const eventDate = formData.get('event-date');
+        const message = formData.get('message');
 
-        // Simulate form submission (replace with actual endpoint)
-        setTimeout(() => {
-            // Create mailto link with form data
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const eventType = formData.get('event-type');
-            const eventDate = formData.get('event-date');
-            const message = formData.get('message');
+        // Build email content
+        const subject = `DJ Booking Inquiry - ${eventType}`;
+        const body = `Name: ${name}
+Email: ${email}
+Event Type: ${eventType}
+Event Date: ${eventDate}
 
-            const subject = `DJ Booking Inquiry - ${eventType}`;
-            const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0AEvent Type: ${eventType}%0D%0AEvent Date: ${eventDate}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+Message:
+${message}`;
 
-            window.location.href = `mailto:ceodave9@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+        // Open email client directly
+        window.location.href = `mailto:ceodave9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-            // Reset form
-            button.classList.remove('loading');
-            button.disabled = false;
-            this.form.reset();
-
-            // Show success message
-            this.showNotification('Message sent! Check your email client.', 'success');
-        }, 1000);
+        // Reset form after opening email
+        this.form.reset();
     }
 
     showNotification(message, type) {
