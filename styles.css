@@ -2293,6 +2293,312 @@ body {
     transition: opacity 0.3s ease;
 }
 
+/* ==========================================================================
+   EXTREME MOBILE OPTIMIZATION
+   ========================================================================== */
+
+/* Tablet and below */
+@media (max-width: 900px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .booking-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-info {
+        text-align: center;
+    }
+
+    .contact-methods {
+        justify-content: center;
+    }
+
+    .event-types {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile phones */
+@media (max-width: 600px) {
+    /* Base improvements */
+    html {
+        font-size: 14px;
+    }
+
+    /* Hero section mobile */
+    .hero {
+        padding: 6rem 1rem 3rem;
+        min-height: auto;
+    }
+
+    .hero-badge {
+        font-size: 0.7rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    /* Platform links in hero - stack on mobile */
+    .hero-content > .platform-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+    }
+
+    .hero-content > .platform-links .platform-link {
+        width: 100%;
+        max-width: 250px;
+        padding: 0.875rem 1.5rem;
+        justify-content: center;
+        font-size: 1rem;
+    }
+
+    /* Hero stats mobile */
+    .hero-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .stat-item {
+        min-width: 80px;
+    }
+
+    .stat-number {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.65rem;
+    }
+
+    /* Hide heavy graphics on mobile for performance */
+    .hero-graphics,
+    .vinyl,
+    .eq-bars,
+    #matrix-bg,
+    .glitch-overlay {
+        display: none !important;
+    }
+
+    /* Sections mobile */
+    .section-container {
+        padding: 0 1rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .section-tag {
+        font-size: 0.7rem;
+    }
+
+    /* About section mobile */
+    .about-text h3 {
+        font-size: 1.25rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+
+    .genre-tags {
+        justify-content: center;
+    }
+
+    .genre-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    /* Mixes section mobile */
+    .mixes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mix-card {
+        width: 100%;
+    }
+
+    .mix-embed iframe {
+        height: 200px !important;
+    }
+
+    .mixes-platforms {
+        margin-bottom: 1.5rem;
+    }
+
+    .mixes-platforms .platform-links {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mixes-platforms .platform-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+
+    /* Events section mobile */
+    .event-types {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .event-type-card {
+        padding: 1.25rem;
+    }
+
+    .event-type-card h4 {
+        font-size: 1rem;
+    }
+
+    .no-events h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Booking section mobile */
+    .booking-form-container {
+        padding: 1.5rem 1rem;
+        margin: 0;
+    }
+
+    .booking-info {
+        padding: 0 0.5rem;
+    }
+
+    .contact-item {
+        padding: 1rem;
+        width: 100%;
+    }
+
+    .contact-methods {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    /* Form improvements */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+        padding: 1rem 0;
+    }
+
+    .btn {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+        min-height: 50px; /* Better touch target */
+    }
+
+    /* Footer mobile */
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-logo .logo-text {
+        font-size: 1.5rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.9rem;
+    }
+
+    .seo-text {
+        font-size: 0.7rem;
+    }
+
+    /* Navigation mobile */
+    .nav-bar {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-logo .logo-text {
+        font-size: 1.25rem;
+    }
+
+    .mobile-menu {
+        padding-top: 5rem;
+    }
+
+    .mobile-link {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: 2rem !important;
+    }
+
+    .hero-stats {
+        gap: 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Touch device improvements */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects that don't work on touch */
+    .btn:hover,
+    .platform-link:hover,
+    .nav-link:hover {
+        transform: none;
+    }
+
+    /* Make touch targets bigger */
+    .nav-link {
+        padding: 0.75rem 1rem;
+    }
+
+    .platform-link {
+        min-height: 48px;
+    }
+
+    /* Reduce animations for better performance */
+    .glitch::before,
+    .glitch::after {
+        display: none;
+    }
+}
+
 /* Print styles for SEO */
 @media print {
     .nav-bar, .hero-graphics, .particle-canvas, .matrix-bg, .glitch-overlay {
