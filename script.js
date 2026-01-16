@@ -4,7 +4,7 @@
  */
 
 // ==========================================================================
-// Matrix Rain Background Effect
+// Matrix Rain Background Effect (Performance Optimized)
 // ==========================================================================
 
 class MatrixRain {
@@ -14,9 +14,17 @@ class MatrixRain {
         this.columns = [];
         this.fontSize = 14;
         this.chars = 'CEODAVESEATTLEDJBASSHOUSEHIPHOP01'.split('');
+        this.isVisible = true;
+        this.animationId = null;
 
         this.resize();
         window.addEventListener('resize', () => this.resize());
+
+        // Pause when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            this.isVisible = !document.hidden;
+            if (this.isVisible && !this.animationId) this.animate();
+        });
     }
 
     resize() {
@@ -38,7 +46,6 @@ class MatrixRain {
             const x = i * this.fontSize;
             const y = this.columns[i] * this.fontSize;
 
-            // Gradient effect - brighter at the head
             const opacity = Math.random() * 0.5 + 0.1;
             this.ctx.fillStyle = `rgba(255, 0, 110, ${opacity})`;
             this.ctx.fillText(char, x, y);
@@ -51,13 +58,17 @@ class MatrixRain {
     }
 
     animate() {
+        if (!this.isVisible) {
+            this.animationId = null;
+            return;
+        }
         this.draw();
-        requestAnimationFrame(() => this.animate());
+        this.animationId = requestAnimationFrame(() => this.animate());
     }
 }
 
 // ==========================================================================
-// Particle System
+// Particle System (Performance Optimized)
 // ==========================================================================
 
 class ParticleSystem {
@@ -67,10 +78,18 @@ class ParticleSystem {
         this.particles = [];
         this.mouse = { x: null, y: null, radius: 150 };
         this.colors = ['#ff006e', '#00f5ff', '#8b5cf6', '#39ff14'];
+        this.isVisible = true;
+        this.animationId = null;
 
         this.resize();
         this.init();
         this.bindEvents();
+
+        // Pause when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            this.isVisible = !document.hidden;
+            if (this.isVisible && !this.animationId) this.animate();
+        });
     }
 
     resize() {
@@ -79,7 +98,8 @@ class ParticleSystem {
     }
 
     init() {
-        const particleCount = Math.floor((this.canvas.width * this.canvas.height) / 15000);
+        // Reduced particle count for better performance
+        const particleCount = Math.min(Math.floor((this.canvas.width * this.canvas.height) / 25000), 60);
         this.particles = [];
 
         for (let i = 0; i < particleCount; i++) {
@@ -122,9 +142,11 @@ class ParticleSystem {
             if (this.mouse.x !== null) {
                 const dx = this.mouse.x - p.x;
                 const dy = this.mouse.y - p.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
+                const radiusSq = this.mouse.radius * this.mouse.radius;
 
-                if (distance < this.mouse.radius) {
+                if (distSq < radiusSq) {
+                    const distance = Math.sqrt(distSq);
                     const force = (this.mouse.radius - distance) / this.mouse.radius;
                     const angle = Math.atan2(dy, dx);
                     p.x -= Math.cos(angle) * force * 2;
@@ -149,14 +171,16 @@ class ParticleSystem {
             this.ctx.globalAlpha = p.opacity;
             this.ctx.fill();
 
-            // Connect nearby particles
-            for (let j = i + 1; j < this.particles.length; j++) {
+            // Connect nearby particles (only check subset for performance)
+            const connectionLimit = Math.min(i + 10, this.particles.length);
+            for (let j = i + 1; j < connectionLimit; j++) {
                 const p2 = this.particles[j];
                 const dx = p.x - p2.x;
                 const dy = p.y - p2.y;
-                const distance = Math.sqrt(dx * dx + dy * dy);
+                const distSq = dx * dx + dy * dy;
 
-                if (distance < 120) {
+                if (distSq < 14400) { // 120^2
+                    const distance = Math.sqrt(distSq);
                     this.ctx.beginPath();
                     this.ctx.strokeStyle = p.color;
                     this.ctx.globalAlpha = (120 - distance) / 120 * 0.2;
@@ -172,8 +196,12 @@ class ParticleSystem {
     }
 
     animate() {
+        if (!this.isVisible) {
+            this.animationId = null;
+            return;
+        }
         this.draw();
-        requestAnimationFrame(() => this.animate());
+        this.animationId = requestAnimationFrame(() => this.animate());
     }
 }
 
@@ -431,22 +459,36 @@ ${message}`;
 }
 
 // ==========================================================================
-// Audio Visualizer Animation
+// Audio Visualizer Animation (Performance Optimized)
 // ==========================================================================
 
 class AudioVisualizer {
     constructor() {
         this.bars = document.querySelectorAll('.viz-bar');
+        this.isVisible = true;
+        this.timeoutId = null;
+
+        // Pause when tab is hidden
+        document.addEventListener('visibilitychange', () => {
+            this.isVisible = !document.hidden;
+            if (this.isVisible && !this.timeoutId) this.animate();
+        });
+
         this.animate();
     }
 
     animate() {
+        if (!this.isVisible) {
+            this.timeoutId = null;
+            return;
+        }
+
         this.bars.forEach(bar => {
             const height = Math.random() * 80 + 20;
             bar.style.height = `${height}px`;
         });
 
-        setTimeout(() => this.animate(), 100);
+        this.timeoutId = setTimeout(() => this.animate(), 150); // Slower refresh
     }
 }
 
@@ -694,9 +736,16 @@ window.addEventListener('load', () => {
 // Performance Optimization - Reduce animations on low FPS
 // ==========================================================================
 
+// Check for reduced motion preference
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.body.classList.add('reduce-motion');
+}
+
+// Simple FPS monitor - only runs briefly on load
 let fps = 60;
 let lastTime = performance.now();
 let frameCount = 0;
+let checkCount = 0;
 
 function checkFPS() {
     const currentTime = performance.now();
@@ -706,13 +755,14 @@ function checkFPS() {
         fps = frameCount;
         frameCount = 0;
         lastTime = currentTime;
+        checkCount++;
 
-        // Reduce animations if FPS is too low
         if (fps < 30) {
             document.body.classList.add('reduce-motion');
-        } else {
-            document.body.classList.remove('reduce-motion');
         }
+
+        // Stop checking after 3 seconds
+        if (checkCount >= 3) return;
     }
 
     requestAnimationFrame(checkFPS);

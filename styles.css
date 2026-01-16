@@ -29,8 +29,8 @@
     --glow-blue: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
     --glow-purple: 0 0 20px var(--neon-purple), 0 0 40px var(--neon-purple);
 
-    --font-display: 'Orbitron', sans-serif;
-    --font-body: 'Rajdhani', sans-serif;
+    --font-display: 'Orbitron', system-ui, -apple-system, sans-serif;
+    --font-body: 'Rajdhani', system-ui, -apple-system, sans-serif;
 
     --transition-fast: 0.2s ease;
     --transition-medium: 0.4s ease;
@@ -831,6 +831,8 @@ body {
     padding: 8rem 0;
     position: relative;
     overflow: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 600px;
 }
 
 .about-section::before {
@@ -1042,6 +1044,8 @@ body {
     background:
         radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
         radial-gradient(ellipse at 80% 50%, rgba(0, 245, 255, 0.1) 0%, transparent 50%);
+    content-visibility: auto;
+    contain-intrinsic-size: 0 800px;
 }
 
 .genre-showcase {
@@ -1446,6 +1450,8 @@ body {
 .events-section {
     padding: 8rem 0;
     position: relative;
+    content-visibility: auto;
+    contain-intrinsic-size: 0 700px;
 }
 
 .events-grid {
@@ -2608,5 +2614,36 @@ body {
     body {
         background: white;
         color: black;
+    }
+}
+
+/* Reduce motion for performance/accessibility */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+}
+
+.reduce-motion #matrix-bg,
+.reduce-motion #particle-canvas,
+.reduce-motion .glitch-overlay {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    #matrix-bg,
+    #particle-canvas,
+    .glitch-overlay {
+        display: none !important;
     }
 }
